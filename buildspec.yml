@@ -22,6 +22,7 @@ phases:
       - dotnet publish Application/CloudMosaic.sln --configuration Release --output ./build_output
       # Copy the Procfile to the output directory so it's included in the artifact
       - cp Procfile ./build_output/
+      - cp -r .ebextensions ./build_output/
 artifacts:
   files:
     - '**/*'
