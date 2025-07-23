@@ -7,17 +7,21 @@ phases:
       dotnet: 6.0
   pre_build:
     commands:
+      # The 'dotnet' commands need to know where your solution (.sln) or project (.csproj) file is.
+      # If your code is in a subdirectory (e.g., 'src'), you must provide the path.
       - echo Restore dependencies...
-      - dotnet restore
+      - dotnet restore src/eb-dotnet-core-linux-docker-sample.sln
   build:
     commands:
       - echo Build started on `date`
-      - dotnet build --configuration Release
+      - dotnet build src/eb-dotnet-core-linux-docker-sample.sln --configuration Release
   post_build:
     commands:
       - echo Publish artifacts...
-      - dotnet publish --configuration Release --output ./build_output
+      # The publish command should point to the specific project file (.csproj) you want to deploy.
+      - dotnet publish src/eb-dotnet-core-linux-docker-sample/eb-dotnet-core-linux-docker-sample.csproj --configuration Release --output ./build_output
 artifacts:
   files:
     - '**/*'
   base-directory: 'build_output'
+
