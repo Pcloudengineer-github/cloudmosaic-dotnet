@@ -1,1 +1,1 @@
-web: dotnet ./eb-dotnet-core-linux-docker-sample.dl
+web: dotnet ./eb-dotnet-core-linux-docker-sample.dll
