@@ -19,7 +19,7 @@ phases:
     commands:
       - echo Publish artifacts...
       # The publish command should point to the specific project file (.csproj) you want to deploy.
-      - dotnet publish src/eb-dotnet-core-linux-docker-sample/eb-dotnet-core-linux-docker-sample.csproj --configuration Release --output ./build_output
+      - dotnet publish --configuration Release --output ./build_output
 artifacts:
   files:
     - '**/*'
