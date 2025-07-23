@@ -10,11 +10,11 @@ phases:
       # The 'dotnet' commands need to know where your solution (.sln) or project (.csproj) file is.
       # If your code is in a subdirectory (e.g., 'src'), you must provide the path.
       - echo Restore dependencies...
-      - dotnet restore src/eb-dotnet-core-linux-docker-sample.sln
+      - dotnet restore Application/CloudMosaic.sln
   build:
     commands:
       - echo Build started on `date`
-      - dotnet build src/eb-dotnet-core-linux-docker-sample.sln --configuration Release
+      - dotnet build Application/CloudMosaic.sln --configuration Release
   post_build:
     commands:
       - echo Publish artifacts...
