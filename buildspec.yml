@@ -20,6 +20,8 @@ phases:
       - echo Publish artifacts...
       # The publish command should point to the specific project file (.csproj) you want to deploy.
       - dotnet publish Application/CloudMosaic.sln --configuration Release --output ./build_output
+      # Copy the Procfile to the output directory so it's included in the artifact
+      - cp Procfile ./build_output/
 artifacts:
   files:
     - '**/*'
